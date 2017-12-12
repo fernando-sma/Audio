@@ -20,7 +20,7 @@ window.addEventListener('DOMContentLoaded', function () {
         // Especifico se o resultado final pode ser alterado ou não pela compreenção da api
         recebe_audio.interimResults = true;
         // Especifico o idioma utilizado pelo usuario
-        recebe_audio.lang = "en-UK";
+        recebe_audio.lang = "pt-BR";
         // uso o metodo onstart para setar a minha variavel esta_gravando como true
         // e modificar o texto do botão
         recebe_audio.onstart = function () {
@@ -86,23 +86,39 @@ window.addEventListener('DOMContentLoaded', function () {
 
 function conferir() {
     console.log(document.getElementById("campo_texto").value);
-    // document.getElementById("campo_texto").value = "Johnny Bravo";
 
-    // if (document.getElementById("campo_texto").value == "vermelho") {
-    //     var x = document.getElementById("texto").style.color = "red";
-    // }
-    // if (document.getElementById("campo_texto").value == "azul") {
-    //     var x = document.getElementById("texto").style.color = "blue";
-    // }
-    // if (document.getElementById("campo_texto").value == "verde") {
-    //     var x = document.getElementById("texto").style.color = "green";
-    // }
-    // if (document.getElementById("campo_texto").value == "branco") {
-    //     var x = document.getElementById("texto").style.color = "white";
-    // }
-    // if (document.getElementById("campo_texto").value == "preto") {
-    //     var x = document.getElementById("texto").style.color = "black";
-    // }
+    if (document.getElementById("campo_texto").value == "vermelho") {
+        var x = document.getElementById("texto").style.color = "red";
+    }
+    if (document.getElementById("campo_texto").value == "azul") {
+        var x = document.getElementById("texto").style.color = "blue";
+    }
+    if (document.getElementById("campo_texto").value == "verde") {
+        var x = document.getElementById("texto").style.color = "green";
+    }
+    if (document.getElementById("campo_texto").value == "branco") {
+        var x = document.getElementById("texto").style.color = "white";
+    }
+    if (document.getElementById("campo_texto").value == "preto") {
+        var x = document.getElementById("texto").style.color = "black";
+    }
 
     var x = document.getElementById("texto").style.color = document.getElementById("campo_texto").value;
+}
+
+function falar(){
+
+var u = new SpeechSynthesisUtterance();
+u.text = document.getElementById("campo_texto").value;
+u.lang = 'pt-BR';
+u.rate = 1;
+u.pitch = 1;
+u.volume = 1;
+speechSynthesis.speak(u);
+u.onend = function(event){
+    alert("Hehe")
+}
+
+
+
 }
